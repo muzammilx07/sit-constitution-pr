@@ -56,16 +56,16 @@ const Slider = ({ width, height }) => {
 
 const images = [
   {
-    url: "https://delhigreens.com/wp-content/uploads/2019/02/inside-the-Delhi-Assembly.jpg",
-  },
-  {
-    url: "https://th-i.thgim.com/public/news/national/kbwh61/article53316949.ece/alternates/LANDSCAPE_1200/CONSTITUTIONOFINDIA",
-  },
-  {
     url: "https://www.iasexpress.net/wp-content/uploads/2019/01/Modern-Indian-History-Mind-Map-UPSC-IAS.png",
   },
   {
     url: "https://cdn.britannica.com/53/255853-050-D13853D1/parliament-house-building-new-delhi-india.jpg",
+  },
+  {
+    url: "https://delhigreens.com/wp-content/uploads/2019/02/inside-the-Delhi-Assembly.jpg",
+  },
+  {
+    url: "https://th-i.thgim.com/public/news/national/kbwh61/article53316949.ece/alternates/LANDSCAPE_1200/CONSTITUTIONOFINDIA",
   },
 ];
 
