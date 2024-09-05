@@ -15,7 +15,7 @@ const CardComponent = () => {
       </div>
       <div className="w-1/2 p-8 flex flex-col justify-center bg-white">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">
-          The Australian Constitution is the bedrock of our society.
+          The Indian Constitution is the bedrock of our society.
         </h1>
         <p className="text-xl text-gray-800 mb-4">
           Since its adoption in 1950, it has shaped our journey as a nation
