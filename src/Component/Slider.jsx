@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
+import '../App.css'
 
 const Slider = ({ width, height }) => {
   const sliderRef = useRef(null);
@@ -39,13 +40,23 @@ const Slider = ({ width, height }) => {
         loop={true}
       />
       <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-60 text-white text-center p-6 `">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Mission US</h1>
+        <h1 className="text-4xl font-bold mb-8">
+          Welcome to Mission
+          <div className="relative mt-6">
+            <hr className="absolute inset-x-0 top-0 border-t-4 border-blue-500 opacity-50" />
+            <span className="relative block text-transparent bg-clip-text bg-gradient-to-r from-[#FF9933] via-white to-[#138808] animate-text text-5xl font-bold py-4">
+              INDIA
+            </span>
+            <hr className="absolute inset-x-0 bottom-0 border-b-4 border-red-500 opacity-50" />
+          </div>
+        </h1>
+
         <p className="text-lg mb-6">Serious history, serious games</p>
         <div className="flex gap-4">
-          <button className="bg-gray-600  text-white py-2 px-4  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white">
+          <button className="bg-gradient-to-r from-[#FFC107] to-[#FF9800] text-white py-2 px-14 rounded-lg font-bold shadow-lg hover:bg-gradient-to-r hover:from-[#FFC107]/90 hover:to-[#FF9800]/90 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
             LEARN
           </button>
-          <button className="bg-gray-600  text-white py-2 px-4  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white">
+          <button className="bg-gradient-to-r from-[#4CAF50] to-[#81C784] text-white py-2 px-14 rounded-lg font-bold shadow-lg hover:bg-gradient-to-r hover:from-[#4CAF50]/90 hover:to-[#81C784]/90 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
             PLAY
           </button>
         </div>
