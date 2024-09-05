@@ -44,7 +44,7 @@ const Slider = ({ width, height }) => {
           Welcome to Mission
           <div className="relative mt-6">
             <hr className="absolute inset-x-0 top-0 border-t-4 border-blue-500 opacity-50" />
-            <span className="relative block text-transparent bg-clip-text bg-gradient-to-r from-[#FF9933] via-white to-[#138808] animate-text text-5xl font-bold py-4">
+            <span className="relative block text-transparent bg-clip-text bg-gradient-to-r from-[#FF9933] via-white to-[#138808] animate-text text-7xl font-bold py-4">
               INDIA
             </span>
             <hr className="absolute inset-x-0 bottom-0 border-b-4 border-red-500 opacity-50" />
