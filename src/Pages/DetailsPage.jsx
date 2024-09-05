@@ -49,7 +49,8 @@ const DetailsPage = () => {
     },
 
     2: {
-      image: "https://postimg.cc/hJDw7Sv0",
+      image:
+        "https://i.postimg.cc/nLBtgrtN/Whats-App-Image-2024-09-05-at-11-23-48-888e2504.jpg",
       title: "The Right to Privacy",
       subtitle: "Data Breach Dilemma",
       shortsummary:

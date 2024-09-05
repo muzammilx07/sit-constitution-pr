@@ -59,7 +59,7 @@ function Navbar() {
           to="/principles"
           className="text-gray-700 hover:text-gray-900 transition"
         >
-          The Six Principles
+          The Principles
         </Link>
         <Link
           to="/high-court"
