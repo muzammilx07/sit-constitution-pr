@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "../Component/Slider";
 import CardGrid from "../Component/CardGrid";
 import CardComponent from "../Component/CardComponent";
+import CardComponentWithImage from "../Component/CardComponentWithImage";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       </div>
       <div className="ss">
         <CardComponent/>
+        <CardComponentWithImage/>
       </div>
     </div>
   );
