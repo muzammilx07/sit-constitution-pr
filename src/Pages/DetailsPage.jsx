@@ -7,7 +7,8 @@ const DetailsPage = () => {
   // Fetch or find card data based on ID (in a real app, you might fetch this from an API or a local data store)
   const cardData = {
     1: {
-      image: "https://i.postimg.cc/C5hf3N9D/header11.jpg",
+      image:
+        "https://i.postimg.cc/Ss3dtG6h/Leonardo-Phoenix-generate-me-image-according-to-story-Story-A-0.jpg",
       title: "THE RIGHT TO FAIR TRIAL",
       subtitle: "Justice for Aarav",
       shortsummary:
