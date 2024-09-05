@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate } from "react-router-dom";
 const DetailsPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   // Fetch or find card data based on ID (in a real app, you might fetch this from an API or a local data store)
   const cardData = {
@@ -82,84 +82,166 @@ const DetailsPage = () => {
     },
   };
 
+  const quizData1 = [
+    {
+      story: "Aarav Verma, a humble and honest shopkeeper...",
+      question:
+        "Which fundamental right of Aarav was violated when he was detained without charges?",
+      options: [
+        "Right to Equality",
+        "Right to Freedom",
+        "Right to Constitutional Remedies",
+        "Right to Life and Personal Liberty",
+      ],
+      answer: "Right to Life and Personal Liberty",
+    },
+    {
+      story: "Aarav Verma, a humble and honest shopkeeper...",
+      question:
+        "Who defended Aarav in the court against the false accusations?",
+      options: [
+        "Inspector Sharma",
+        "Judge Bhardwaj",
+        "Advocate Priya Rao",
+        "Constable Singh",
+      ],
+      answer: "Advocate Priya Rao",
+    },
+    {
+      story: "Aarav Verma, a humble and honest shopkeeper...",
+      question:
+        "What was the final verdict given by Judge Bhardwaj in Aarav's case?",
+      options: [
+        "Aarav was sentenced to prison",
+        "Aarav was released immediately",
+        "Aarav was fined",
+        "Aarav was released on bail",
+      ],
+      answer: "Aarav was released immediately",
+    },
+  ];
+
+  const quizData2 = [
+    {
+      story: "Neha, a diligent college student...",
+      question:
+        "Which fundamental right was compromised when Neha's personal data was collected without her knowledge?",
+      options: [
+        "Right to Equality",
+        "Right to Freedom",
+        "Right to Education",
+        "Right to Privacy",
+      ],
+      answer: "Right to Privacy",
+    },
+    {
+      story: "Neha, a diligent college student...",
+      question:
+        "What decision did Neha have to make after discovering her data was misused?",
+      options: [
+        "Report the app to authorities",
+        "Ignore the situation",
+        "Continue using the app",
+        "Delete the app and move on",
+      ],
+      answer: "Report the app to authorities",
+    },
+    {
+      story: "Neha, a diligent college student...",
+      question:
+        "What article of the Indian Constitution protects the right to privacy?",
+      options: ["Article 14", "Article 19", "Article 21", "Article 32"],
+      answer: "Article 21",
+    },
+  ];
+
   const card = cardData[id];
+  const quizData = id === 1 ? quizData1 : quizData2;
 
-   if (!card) {
-     return <div>Card not found</div>;
-   }
+  if (!card) {
+    return <div>Card not found</div>;
+  }
 
-   return (
-     <div className="p-8 bg-white space-y-16">
-       {/* Title and Subtitle */}
-       <div className="text-center">
-         <h1 className="text-5xl font-bold mb-4 text-gray-900">{card.title}</h1>
-         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-           {card.subtitle}
-         </p>
-       </div>
+  const handleQuizButtonClick = () => {
+    navigate("/quiz", { state: { quizData } });
+  };
 
-       {/* Left-Right Content Layout */}
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-         {/* Left: Text Section */}
-         <div className="space-y-6">
-           <h2 className="text-4xl font-bold text-gray-800">
-             Learn More About the Story
-           </h2>
-           <p className="text-lg text-gray-600">
-             {card.storyIntro ||
-               "Discover the thrilling details behind the plot and its intricacies."}
-           </p>
-         </div>
+  return (
+    <div className="p-8 bg-white space-y-16">
+      {/* Title and Subtitle */}
+      <div className="text-center">
+        <h1 className="text-5xl font-bold mb-4 text-gray-900">{card.title}</h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          {card.subtitle}
+        </p>
+      </div>
 
-         {/* Right: Image */}
-         <div className="relative">
-           <img
-             src={card.image}
-             alt={card.title}
-             className="w-full h-96 object-cover rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-           />
-         </div>
-       </div>
+      <div className="space-y-6">
+        <h2 className="text-4xl font-bold text-gray-800">
+          Learn More About the Story
+        </h2>
+        <p className="text-lg text-gray-600">
+          {card.shortsummary ||
+            "Discover the thrilling details behind the plot and its intricacies."}
+        </p>
+      </div>
+      <div className="relative">
+        <img
+          src={card.image}
+          alt={card.title}
+          className="w-full h-[75vh] object-cover rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        />
+      </div>
 
-       {/* Floating Rounded Div for Long Story */}
-       <div className="relative p-8 bg-gray-100 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-         <p className="text-xl text-gray-700">
-           {card.longsummary ||
-             "This is a longer summary of the story, providing detailed insights."}
-         </p>
-         <div className="absolute top-0 left-0 w-16 h-16 bg-gray-300 rounded-full opacity-20 transform translate-x-10 -translate-y-6"></div>
-         <div className="absolute bottom-0 right-0 w-24 h-24 bg-gray-300 rounded-full opacity-20 transform -translate-x-10 translate-y-6"></div>
-       </div>
+      {/* Floating Rounded Div for Long Story */}
+      <div className="relative p-8 bg-gray-100 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <p className="text-xl text-gray-700">
+          {card.longsummary ||
+            "This is a longer summary of the story, providing detailed insights."}
+        </p>
+        <div className="absolute top-0 left-0 w-16 h-16 bg-gray-300 rounded-full opacity-20 transform translate-x-10 -translate-y-6"></div>
+        <div className="absolute bottom-0 right-0 w-24 h-24 bg-gray-300 rounded-full opacity-20 transform -translate-x-10 translate-y-6"></div>
+      </div>
 
-       {/* Masonry Grid for Characters */}
-       <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 px-40">
-         Meet the Characters
-       </h2>
-       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
-         {Object.values(card.characters).map((character, index) => (
-           <div
-             key={index}
-             className="relative group bg-white rounded-lg shadow-lg overflow-hidden h-96"
-           >
-             <img
-               src={character.img}
-               alt={character.name}
-               className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
-             />
-             {/* Overlay with Text that appears on hover */}
-             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex justify-center items-center">
-               <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                 <h3 className="text-2xl font-semibold mb-2">
-                   {character.name}
-                 </h3>
-                 <p className="text-gray-200">{character.info}</p>
-               </div>
-             </div>
-           </div>
-         ))}
-       </div>
-     </div>
-   );
+      {/* Masonry Grid for Characters */}
+      <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 px-40">
+        Meet the Characters
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {Object.values(card.characters).map((character, index) => (
+          <div
+            key={index}
+            className="relative group bg-white rounded-lg shadow-lg overflow-hidden h-96"
+          >
+            <img
+              src={character.img}
+              alt={character.name}
+              className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            {/* Overlay with Text that appears on hover */}
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex justify-center items-center">
+              <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                <h3 className="text-2xl font-semibold mb-2">
+                  {character.name}
+                </h3>
+                <p className="text-gray-200">{character.info}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Quiz Button */}
+      <div className="text-center">
+        <button
+          onClick={handleQuizButtonClick}
+          className="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300"
+        >
+          Participate in Quiz
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default DetailsPage;

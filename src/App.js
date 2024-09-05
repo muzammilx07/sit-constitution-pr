@@ -8,6 +8,8 @@ import About from "./Pages/About";
 import DetailsPage from "./Pages/DetailsPage"; // Import the DetailsPage component
 import Origins from "./Pages/Origins";
 import Resources from "./Pages/Resources";
+import QuizPage from "./Component/QuizPage";
+import QuizReport from "./Component/QuizReport";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/origins" element={<Origins />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/details/:id" element={<DetailsPage />} />{" "}
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/quizreport" element={<QuizReport />} />
       </Routes>
     </Router>
   );
