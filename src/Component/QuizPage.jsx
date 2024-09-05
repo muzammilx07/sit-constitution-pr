@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingBar from "react-top-loading-bar";
@@ -7,6 +7,7 @@ const Quiz = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { quizData } = location.state || {};
+  console.log("quiz",quizData)
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -15,17 +16,6 @@ const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [progress, setProgress] = useState(0);
 
-  // Memoize the resetGame function
-  const resetGame = useCallback(() => {
-    const shuffledQuestions = [...quizData].sort(() => Math.random() - 0.5);
-    setQuestions(shuffledQuestions);
-    setCurrentQuestion(0);
-    setScore(0);
-    setShowAnswer(false);
-    setUserAnswers([]);
-    setProgress(0);
-  }, [quizData]);
-
   useEffect(() => {
     if (quizData) {
       resetGame();
@@ -33,7 +23,17 @@ const Quiz = () => {
       toast.error("No quiz data available.");
       navigate("/");
     }
-  }, [quizData, navigate, resetGame]);
+  }, [quizData]);
+
+  const resetGame = () => {
+    const shuffledQuestions = [...quizData].sort(() => Math.random() - 0.5);
+    setQuestions(shuffledQuestions);
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowAnswer(false);
+    setUserAnswers([]);
+    setProgress(0);
+  };
 
   const handleAnswerOptionClick = (selectedOption) => {
     const isCorrect = selectedOption === questions[currentQuestion].answer;
@@ -75,8 +75,9 @@ const Quiz = () => {
               progress: undefined,
               theme: "light",
             });
+            // Navigate to report page without additional timeout
             navigate("/quizreport", { state: { userAnswers } });
-          }
+          } 
         }
       },
       currentQuestion < questions.length - 1 ? 2000 : 0

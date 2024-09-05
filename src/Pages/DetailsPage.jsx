@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 const DetailsPage = () => {
   const { id } = useParams();
@@ -49,7 +49,7 @@ const DetailsPage = () => {
     },
 
     2: {
-      image: "path/to/image1.png",
+      image: "https://postimg.cc/hJDw7Sv0",
       title: "The Right to Privacy",
       subtitle: "Data Breach Dilemma",
       shortsummary:
@@ -156,20 +156,23 @@ const DetailsPage = () => {
   ];
    const [quizData, setQuizData] = useState([]);
 
-  const card = cardData[id];
-   if (id === 1) {
-     setQuizData(quizData1);
-   } else if (id === 2) {
-     setQuizData(quizData2);
+   useEffect(() => {
+     if (id === "1") {
+       setQuizData(quizData1);
+     } else if (id === "2") {
+       setQuizData(quizData2);
+     }
+   }, [id]);
+
+   const card = cardData[id];
+
+   if (!card) {
+     return <div>Card not found</div>;
    }
 
-  if (!card) {
-    return <div>Card not found</div>;
-  }
-
-  const handleQuizButtonClick = () => {
-    navigate("/quiz", { state: { quizData } });
-  };
+   const handleQuizButtonClick = () => {
+     navigate("/quiz", { state: { quizData } });
+   };
 
   return (
     <div className="p-8 bg-white space-y-16">
