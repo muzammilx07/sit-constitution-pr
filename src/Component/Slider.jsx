@@ -53,12 +53,13 @@ const Slider = ({ width, height }) => {
 
         <p className="text-lg mb-6">Serious history, serious games</p>
         <div className="flex gap-4">
-          <button className="bg-gradient-to-r from-[#FFC107] to-[#FF9800] text-white py-2 px-14 rounded-lg font-bold shadow-lg hover:bg-gradient-to-r hover:from-[#FFC107]/90 hover:to-[#FF9800]/90 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
-            LEARN
-          </button>
-          <button className="bg-gradient-to-r from-[#4CAF50] to-[#81C784] text-white py-2 px-14 rounded-lg font-bold shadow-lg hover:bg-gradient-to-r hover:from-[#4CAF50]/90 hover:to-[#81C784]/90 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
-            PLAY
-          </button>
+         
+            <button className="bg-gradient-to-r from-[#FFC107] to-[#FF9800] text-white py-2 px-14 rounded-lg font-bold shadow-lg hover:bg-gradient-to-r hover:from-[#FFC107]/90 hover:to-[#FF9800]/90 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
+              LEARN
+            </button>
+            <button className="bg-gradient-to-r from-[#4CAF50] to-[#81C784] text-white py-2 px-14 rounded-lg font-bold shadow-lg hover:bg-gradient-to-r hover:from-[#4CAF50]/90 hover:to-[#81C784]/90 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
+              PLAY
+            </button>
         </div>
       </div>
     </div>

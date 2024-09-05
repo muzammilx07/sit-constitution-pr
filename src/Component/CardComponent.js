@@ -2,7 +2,7 @@ import React from "react";
 
 const CardComponent = () => {
   return (
-    <div className="bg-yellow-400  shadow-2xl flex max-w-full mt-8 pt-2 h-96 px-20 overflow-hidden">
+    <div id="card" className="bg-yellow-400  shadow-2xl flex max-w-full mt-8 pt-2 h-96 px-20 overflow-hidden">
       <div className="w-1/2 flex items-center justify-center p-4">
         <iframe
           className="w-full h-full rounded-lg"
