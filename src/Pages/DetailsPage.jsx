@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 const DetailsPage = () => {
   const { id } = useParams();
@@ -154,9 +154,14 @@ const DetailsPage = () => {
       answer: "Article 21",
     },
   ];
+   const [quizData, setQuizData] = useState([]);
 
   const card = cardData[id];
-  const quizData = id === 1 ? quizData1 : quizData2;
+   if (id === 1) {
+     setQuizData(quizData1);
+   } else if (id === 2) {
+     setQuizData(quizData2);
+   }
 
   if (!card) {
     return <div>Card not found</div>;

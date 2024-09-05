@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "../Component/Slider";
 import CardGrid from "../Component/CardGrid";
+import CardComponent from "../Component/CardComponent";
 
 const Home = () => {
   return (
@@ -11,6 +12,9 @@ const Home = () => {
           LETS PLAY
         </h2>
         <CardGrid />
+      </div>
+      <div className="ss">
+        <CardComponent/>
       </div>
     </div>
   );
